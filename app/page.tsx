@@ -2173,6 +2173,11 @@ export default function DopeTechEcommerce() {
                 Support
               </a>
             </div>
+            
+            {/* LMC Pan Information */}
+            <div className="text-center">
+              <span className="text-xs sm:text-sm text-gray-400 jakarta-light font-medium">LMC Pan 121576633</span>
+            </div>
           </div>
         </div>
       </footer>

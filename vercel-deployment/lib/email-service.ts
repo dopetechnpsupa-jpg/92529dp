@@ -769,7 +769,7 @@ export class EmailService {
                     <div class="info-value">${orderData.customerInfo.state}</div>
                   </div>
                   <div class="info-item">
-                    <div class="info-label">ZIP Code:</div>
+                    <div class="info-label">District:</div>
                     <div class="info-value">${orderData.customerInfo.zipCode}</div>
                   </div>
                 </div>
@@ -931,7 +931,7 @@ export class EmailService {
         
         const emailHtml = this.generateCustomerEmailHTML(orderData)
         
-        const { data, error } = await this.resend.emails.send({
+        const { data, error } = await this.resend!.emails.send({
           from: 'DopeTech GMK <onboarding@resend.dev>',
           to: [orderData.customerInfo.email],
           subject: `Order Confirmation - ${orderData.orderId} | DopeTech GMK`,
@@ -1010,7 +1010,7 @@ export class EmailService {
       const emailHtml = this.generateAdminEmailHTML(orderData, orderDbId)
 
       // Send email using Resend
-      const { data, error } = await this.resend.emails.send({
+      const { data, error } = await this.resend!.emails.send({
         from: 'DopeTech GMK <onboarding@resend.dev>',
         to: [recipientEmail],
         subject: `🚨 New Order Alert: ${orderData.orderId} | DopeTech GMK`,
@@ -1107,7 +1107,7 @@ export class EmailService {
         }
       }
 
-      const { data, error } = await this.resend.emails.send({
+      const { data, error } = await this.resend!.emails.send({
         from: 'DopeTech GMK <onboarding@resend.dev>',
         to: [process.env.ADMIN_EMAIL || 'dopetechnp@gmail.com'],
         subject: 'Test Email - DopeTech GMK Email Service',

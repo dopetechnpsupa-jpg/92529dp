@@ -1018,7 +1018,7 @@ export class EmailService {
         
         const emailHtml = this.generateCustomerEmailHTML(orderData)
         
-        const { data, error } = await this.resend.emails.send({
+        const { data, error } = await this.resend!.emails.send({
           from: 'DopeTech Nepal <onboarding@resend.dev>',
           to: [orderData.customerInfo.email],
           subject: `Order Confirmation - ${orderData.orderId} | DopeTech Nepal`,
@@ -1040,7 +1040,7 @@ export class EmailService {
         }
 
         console.log('✅ Customer confirmation email sent successfully via Resend')
-        console.log('📧 Email ID:', data?.id || 'No ID available')
+        console.log('📧 Email ID:', data?.id)
         console.log('📧 Sent to:', orderData.customerInfo.email)
         console.log('📧 Order ID in subject:', orderData.orderId)
         return {
@@ -1097,7 +1097,7 @@ export class EmailService {
       const emailHtml = this.generateAdminEmailHTML(orderData, orderDbId)
 
       // Send email using Resend
-      const { data, error } = await this.resend.emails.send({
+      const { data, error } = await this.resend!.emails.send({
         from: 'DopeTech Nepal <onboarding@resend.dev>',
         to: [recipientEmail],
         subject: `🚨 New Order Alert: ${orderData.orderId} | DopeTech Nepal`,
@@ -1118,7 +1118,7 @@ export class EmailService {
       }
 
       console.log('✅ Admin notification email sent successfully')
-      console.log('📧 Email ID:', data?.id || 'No ID available')
+      console.log('📧 Email ID:', data?.id)
       console.log('📧 Sent to:', recipientEmail)
       console.log('📧 Order ID in subject:', orderData.orderId)
       return {

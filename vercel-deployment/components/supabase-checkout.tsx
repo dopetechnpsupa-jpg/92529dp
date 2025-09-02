@@ -422,14 +422,14 @@ export default function SupabaseCheckout({ isOpen, onClose, cart, total, onCartR
                       <label htmlFor="zipCode" className="block text-base font-medium text-gray-300 mb-2">
                         District
                       </label>
-                      <input
-                        type="text"
-                        id="zipCode"
-                        value={customerInfo.zipCode}
-                        onChange={(e) => handleCustomerInfoChange('zipCode', e.target.value)}
-                        className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#F7DD0F] focus:border-transparent bg-white/5 text-white placeholder-gray-400 backdrop-blur-sm text-base md:text-lg"
-                        placeholder="Enter district"
-                      />
+                                              <input
+                          type="text"
+                          id="zipCode"
+                          value={customerInfo.zipCode}
+                          onChange={(e) => handleCustomerInfoChange('zipCode', e.target.value)}
+                          className="w-full px-4 py-3 border border-white/20 rounded-lg focus:ring-2 focus:ring-[#F7DD0F] focus:border-transparent bg-white/5 text-white placeholder-gray-400 backdrop-blur-sm text-base md:text-lg"
+                          placeholder="Enter district"
+                        />
                     </div>
                   </div>
 
