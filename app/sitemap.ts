@@ -10,25 +10,37 @@ export default async function sitemap() {
   } catch (error) {
     console.error('Error generating sitemap:', error)
     
-    // Fallback sitemap
+    // Fallback sitemap with correct domain
     return [
       {
-        url: 'https://dopetechnp-aflazuh1u-dopetechnps-projects.vercel.app',
+        url: 'https://www.dopetechnp.com',
         lastModified: new Date(),
         changeFrequency: 'daily',
         priority: 1,
       },
       {
-        url: 'https://dopetechnp-aflazuh1u-dopetechnps-projects.vercel.app/support',
+        url: 'https://www.dopetechnp.com/support',
         lastModified: new Date(),
         changeFrequency: 'weekly',
         priority: 0.8,
       },
       {
-        url: 'https://dopetechnp-aflazuh1u-dopetechnps-projects.vercel.app/terms',
+        url: 'https://www.dopetechnp.com/terms',
         lastModified: new Date(),
         changeFrequency: 'monthly',
         priority: 0.5,
+      },
+      {
+        url: 'https://www.dopetechnp.com/admin',
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.3,
+      },
+      {
+        url: 'https://www.dopetechnp.com/dopetechadmin',
+        lastModified: new Date(),
+        changeFrequency: 'monthly',
+        priority: 0.3,
       },
     ]
   }

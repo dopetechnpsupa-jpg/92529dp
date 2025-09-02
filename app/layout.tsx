@@ -29,23 +29,23 @@ const kelptA2ExtraBold = {
 }
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://dopetechnp-aflazuh1u-dopetechnps-projects.vercel.app'),
+  metadataBase: new URL('https://www.dopetechnp.com'),
   title: {
-    default: "DopeTech Nepal - Premium Tech Gear & Gaming Peripherals",
-    template: "%s | DopeTech Nepal"
+    default: "Dopetech Nepal | Gaming Keyboards, Mouse & Headphones in Nepal",
+    template: "%s | Dopetech Nepal"
   },
-  description: "Discover premium tech gear at DopeTech Nepal. Mechanical keyboards, gaming mice, wireless headphones, monitors, and more. Free shipping across Nepal. Your setup, perfected.",
-  keywords: "tech gear, mechanical keyboard, gaming mouse, wireless headphones, Nepal, DopeTech, gaming peripherals, RGB keyboard, wireless mouse, gaming setup, tech accessories, computer peripherals, Nepal tech store",
-  authors: [{ name: "DopeTech Nepal" }],
-  creator: "DopeTech Nepal",
-  publisher: "DopeTech Nepal",
+  description: "Shop premium gaming keyboards, mouse, headphones & PC accessories at Dopetech Nepal. Dopetech Nepal brings you the best gear for your perfect setup.",
+  keywords: "gaming keyboards, gaming mouse, gaming headphones, PC accessories, Nepal, Dopetech Nepal, gaming gear, mechanical keyboard, wireless mouse, gaming setup, tech accessories, computer peripherals, Nepal tech store",
+  authors: [{ name: "Dopetech Nepal" }],
+  creator: "Dopetech Nepal",
+  publisher: "Dopetech Nepal",
   generator: 'Next.js',
-  applicationName: 'DopeTech Nepal',
+  applicationName: 'Dopetech Nepal',
   referrer: 'origin-when-cross-origin',
   appleWebApp: {
     capable: true,
     statusBarStyle: 'default',
-    title: 'DopeTech',
+    title: 'Dopetech',
           startupImage: [
       {
         url: '/logo/dopelogo.svg',
@@ -72,23 +72,23 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'en_US',
-    url: 'https://dopetechnp-aflazuh1u-dopetechnps-projects.vercel.app',
-    title: 'DopeTech Nepal - Premium Tech Gear',
-    description: 'Premium tech gear from DopeTech Nepal. Mechanical keyboards, gaming mice, wireless headphones, and more.',
-    siteName: 'DopeTech Nepal',
+    url: 'https://www.dopetechnp.com',
+    title: 'Dopetech Nepal | Gaming Keyboards, Mouse & Headphones in Nepal',
+    description: 'Shop premium gaming keyboards, mouse, headphones & PC accessories at Dopetech Nepal. Dopetech Nepal brings you the best gear for your perfect setup.',
+    siteName: 'Dopetech Nepal',
     images: [
       {
         url: '/logo/dopelogo.svg',
         width: 1200,
         height: 630,
-        alt: 'DopeTech Nepal',
+        alt: 'Dopetech Nepal',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'DopeTech Nepal - Premium Tech Gear',
-    description: 'Premium tech gear from DopeTech Nepal. Mechanical keyboards, gaming mice, wireless headphones, and more.',
+    title: 'Dopetech Nepal | Gaming Keyboards, Mouse & Headphones in Nepal',
+    description: 'Shop premium gaming keyboards, mouse, headphones & PC accessories at Dopetech Nepal. Dopetech Nepal brings you the best gear for your perfect setup.',
     images: ['/logo/dopelogo.svg'],
     creator: '@dopetech_np',
   },
@@ -96,14 +96,14 @@ export const metadata: Metadata = {
     google: 'your-google-verification-code',
   },
   alternates: {
-    canonical: 'https://dopetechnp-aflazuh1u-dopetechnps-projects.vercel.app',
+    canonical: 'https://www.dopetechnp.com',
   },
   other: {
     'mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-capable': 'yes',
     'apple-mobile-web-app-status-bar-style': 'default',
-    'apple-mobile-web-app-title': 'DopeTech',
-    'application-name': 'DopeTech Nepal',
+    'apple-mobile-web-app-title': 'Dopetech',
+    'application-name': 'Dopetech Nepal',
     'msapplication-TileColor': '#F7DD0F',
     'msapplication-config': '/browserconfig.xml',
   },

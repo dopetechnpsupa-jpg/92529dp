@@ -1,8 +1,18 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Support - DopeTech Nepal',
-  description: 'Get support and assistance from DopeTech Nepal. Contact us for any questions or concerns.',
+  title: 'Support | Dopetech Nepal',
+  description: 'Get support and assistance from Dopetech Nepal. Contact us for any questions, concerns, or help with your gaming gear orders.',
+  keywords: 'support, customer service, contact, help, Dopetech Nepal, gaming gear support, tech support Nepal',
+  openGraph: {
+    title: 'Support | Dopetech Nepal',
+    description: 'Get support and assistance from Dopetech Nepal. Contact us for any questions, concerns, or help with your gaming gear orders.',
+    type: 'website',
+    url: 'https://www.dopetechnp.com/support',
+  },
+  alternates: {
+    canonical: 'https://www.dopetechnp.com/support',
+  },
 }
 
 export default function SupportPage() {

@@ -51,7 +51,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
     const originalPrice = product.original_price > product.price ? product.original_price.toLocaleString() : null
     const discount = product.discount > 0 ? `${product.discount}% OFF` : null
     
-    const title = `${product.name} - Rs ${price} | DopeTech Nepal`
+    const title = `${product.name} - Rs ${price} | Dopetech Nepal`
     const description = `${product.description} ${product.features?.length ? `Features: ${product.features.slice(0, 3).join(', ')}.` : ''} ${discount ? `Special offer: ${discount}` : ''} Free shipping across Nepal.`
     
     const imageUrl = getPrimaryImageUrl(product)
@@ -73,7 +73,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
         title,
         description,
         type: 'website',
-        url: `https://dopetechnp-aflazuh1u-dopetechnps-projects.vercel.app/product/${product.id}`,
+        url: `https://www.dopetechnp.com/product/${product.id}`,
         images: [
           {
             url: imageUrl,
@@ -82,7 +82,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
             alt: product.name,
           },
         ],
-        siteName: 'DopeTech Nepal',
+        siteName: 'Dopetech Nepal',
         locale: 'en_US',
       },
       twitter: {
@@ -93,7 +93,7 @@ export async function generateMetadata({ params }: ProductPageProps): Promise<Me
         creator: '@dopetech_np',
       },
       alternates: {
-        canonical: `https://dopetechnp-aflazuh1u-dopetechnps-projects.vercel.app/product/${product.id}`,
+        canonical: `https://www.dopetechnp.com/product/${product.id}`,
       },
       robots: {
         index: true,

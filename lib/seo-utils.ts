@@ -64,8 +64,8 @@ export function generateOrganizationStructuredData() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "DopeTech Nepal",
-    "url": "https://dopetechnp-aflazuh1u-dopetechnps-projects.vercel.app",
-    "logo": "https://dopetechnp-aflazuh1u-dopetechnps-projects.vercel.app/logo/dopelogo.svg",
+    "url": "https://www.dopetechnp.com",
+    "logo": "https://www.dopetechnp.com/logo/dopelogo.svg",
     "description": "Premium tech gear and gaming peripherals in Nepal",
     "address": {
       "@type": "PostalAddress",
@@ -95,7 +95,7 @@ export function generateBreadcrumbStructuredData(breadcrumbs: Array<{ name: stri
       "@type": "ListItem",
       "position": index + 1,
       "name": crumb.name,
-      "item": `https://dopetechnp-aflazuh1u-dopetechnps-projects.vercel.app${crumb.url}`
+      "item": `https://www.dopetechnp.com${crumb.url}`
     }))
   }
 }
@@ -127,7 +127,7 @@ export function generateLocalBusinessStructuredData() {
     "@type": "LocalBusiness",
     "name": "DopeTech Nepal",
     "description": "Premium tech gear and gaming peripherals store in Nepal",
-    "url": "https://dopetechnp-aflazuh1u-dopetechnps-projects.vercel.app",
+    "url": "https://www.dopetechnp.com",
     "telephone": "+977-XXXXXXXXX",
     "address": {
       "@type": "PostalAddress",
@@ -166,7 +166,7 @@ export function generateLocalBusinessStructuredData() {
  * Generate sitemap data for products
  */
 export function generateSitemapData(products: any[]) {
-  const baseUrl = 'https://dopetechnp-aflazuh1u-dopetechnps-projects.vercel.app'
+  const baseUrl = 'https://www.dopetechnp.com'
   
   const urls = [
     {
@@ -186,6 +186,18 @@ export function generateSitemapData(products: any[]) {
       lastmod: new Date().toISOString(),
       changefreq: 'monthly',
       priority: 0.5
+    },
+    {
+      loc: `${baseUrl}/admin`,
+      lastmod: new Date().toISOString(),
+      changefreq: 'monthly',
+      priority: 0.3
+    },
+    {
+      loc: `${baseUrl}/dopetechadmin`,
+      lastmod: new Date().toISOString(),
+      changefreq: 'monthly',
+      priority: 0.3
     },
     ...products.map(product => ({
       loc: `${baseUrl}${generateProductUrl(product)}`,

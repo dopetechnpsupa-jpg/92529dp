@@ -1,34 +1,34 @@
 import { Metadata } from "next"
 
 export const metadata: Metadata = {
-  title: "DopeTech Nepal - Premium Tech Gear & Gaming Peripherals",
-  description: "Discover premium tech gear at DopeTech Nepal. Mechanical keyboards, gaming mice, wireless headphones, monitors, and more. Free shipping across Nepal. Your setup, perfected.",
-  keywords: "tech gear, mechanical keyboard, gaming mouse, wireless headphones, Nepal, DopeTech, gaming peripherals, RGB keyboard, wireless mouse, gaming setup, tech accessories, computer peripherals",
+  title: "Dopetech Nepal | Gaming Keyboards, Mouse & Headphones in Nepal",
+  description: "Shop premium gaming keyboards, mouse, headphones & PC accessories at Dopetech Nepal. Dopetech Nepal brings you the best gear for your perfect setup.",
+  keywords: "gaming keyboards, gaming mouse, gaming headphones, PC accessories, Nepal, Dopetech Nepal, gaming gear, mechanical keyboard, wireless mouse, gaming setup, tech accessories, computer peripherals",
   openGraph: {
-    title: "DopeTech Nepal - Premium Tech Gear & Gaming Peripherals",
-    description: "Discover premium tech gear at DopeTech Nepal. Mechanical keyboards, gaming mice, wireless headphones, monitors, and more. Free shipping across Nepal.",
+    title: "Dopetech Nepal | Gaming Keyboards, Mouse & Headphones in Nepal",
+    description: "Shop premium gaming keyboards, mouse, headphones & PC accessories at Dopetech Nepal. Dopetech Nepal brings you the best gear for your perfect setup.",
     type: 'website',
     locale: 'en_US',
-    url: 'https://dopetechnp-aflazuh1u-dopetechnps-projects.vercel.app',
-    siteName: 'DopeTech Nepal',
+    url: 'https://www.dopetechnp.com',
+    siteName: 'Dopetech Nepal',
     images: [
       {
         url: '/logo/dopelogo.svg',
         width: 1200,
         height: 630,
-        alt: 'DopeTech Nepal - Premium Tech Gear',
+        alt: 'Dopetech Nepal - Gaming Keyboards, Mouse & Headphones in Nepal',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: "DopeTech Nepal - Premium Tech Gear & Gaming Peripherals",
-    description: "Discover premium tech gear at DopeTech Nepal. Mechanical keyboards, gaming mice, wireless headphones, monitors, and more.",
+    title: "Dopetech Nepal | Gaming Keyboards, Mouse & Headphones in Nepal",
+    description: "Shop premium gaming keyboards, mouse, headphones & PC accessories at Dopetech Nepal. Dopetech Nepal brings you the best gear for your perfect setup.",
     images: ['/logo/dopelogo.svg'],
     creator: '@dopetech_np',
   },
   alternates: {
-    canonical: 'https://dopetechnp-aflazuh1u-dopetechnps-projects.vercel.app',
+    canonical: 'https://www.dopetechnp.com',
   },
   robots: {
     index: true,

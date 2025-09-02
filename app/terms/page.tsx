@@ -1,8 +1,18 @@
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
-  title: 'Terms & Conditions - DopeTech Nepal',
-  description: 'Terms and conditions for using DopeTech Nepal services and products.',
+  title: 'Terms & Conditions | Dopetech Nepal',
+  description: 'Terms and conditions for using Dopetech Nepal services and products. Read our policies on orders, delivery, returns, and customer rights.',
+  keywords: 'terms and conditions, policies, Dopetech Nepal, customer rights, delivery policy, return policy, refund policy',
+  openGraph: {
+    title: 'Terms & Conditions | Dopetech Nepal',
+    description: 'Terms and conditions for using Dopetech Nepal services and products. Read our policies on orders, delivery, returns, and customer rights.',
+    type: 'website',
+    url: 'https://www.dopetechnp.com/terms',
+  },
+  alternates: {
+    canonical: 'https://www.dopetechnp.com/terms',
+  },
 }
 
 export default function TermsPage() {
