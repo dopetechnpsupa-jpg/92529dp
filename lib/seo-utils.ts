@@ -170,39 +170,27 @@ export function generateSitemapData(products: any[]) {
   
   const urls = [
     {
-      loc: baseUrl,
-      lastmod: new Date().toISOString(),
-      changefreq: 'daily',
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
       priority: 1.0
     },
     {
-      loc: `${baseUrl}/support`,
-      lastmod: new Date().toISOString(),
-      changefreq: 'weekly',
+      url: `${baseUrl}/support`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
       priority: 0.8
     },
     {
-      loc: `${baseUrl}/terms`,
-      lastmod: new Date().toISOString(),
-      changefreq: 'monthly',
+      url: `${baseUrl}/terms`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
       priority: 0.5
     },
-    {
-      loc: `${baseUrl}/admin`,
-      lastmod: new Date().toISOString(),
-      changefreq: 'monthly',
-      priority: 0.3
-    },
-    {
-      loc: `${baseUrl}/dopetechadmin`,
-      lastmod: new Date().toISOString(),
-      changefreq: 'monthly',
-      priority: 0.3
-    },
     ...products.map(product => ({
-      loc: `${baseUrl}${generateProductUrl(product)}`,
-      lastmod: new Date().toISOString(),
-      changefreq: 'weekly',
+      url: `${baseUrl}${generateProductUrl(product)}`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
       priority: 0.9
     }))
   ]

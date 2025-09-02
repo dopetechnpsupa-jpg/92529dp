@@ -30,18 +30,6 @@ export default async function sitemap() {
         changeFrequency: 'monthly',
         priority: 0.5,
       },
-      {
-        url: 'https://www.dopetechnp.com/admin',
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.3,
-      },
-      {
-        url: 'https://www.dopetechnp.com/dopetechadmin',
-        lastModified: new Date(),
-        changeFrequency: 'monthly',
-        priority: 0.3,
-      },
     ]
   }
 }
