@@ -2,7 +2,7 @@
 module.exports = {
   siteUrl: 'https://www.dopetechnp.com',
   generateRobotsTxt: false, // We'll create our own robots.txt
-  generateIndexSitemap: false,
+  generateIndexSitemap: false, // We'll manage sitemap structure manually
   exclude: ['/admin', '/dopetechadmin', '/api'], // Exclude admin pages and API routes from sitemap
   robotsTxtOptions: {
     policies: [
@@ -50,6 +50,15 @@ module.exports = {
         loc: path,
         changefreq: 'monthly',
         priority: 0.5,
+        lastmod: new Date().toISOString(),
+      }
+    }
+    
+    if (path === '/sitemap.xml') {
+      return {
+        loc: path,
+        changefreq: 'weekly',
+        priority: 0.7,
         lastmod: new Date().toISOString(),
       }
     }

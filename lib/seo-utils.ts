@@ -15,7 +15,7 @@ export function generateSlug(text: string): string {
 /**
  * Generate a product URL with slug
  */
-export function generateProductUrl(product: { id: number; name: string; category: string }): string {
+export function generateProductUrl(product: { id: number; name: string; category?: string }): string {
   const slug = generateSlug(product.name)
   return `/product/${product.id}-${slug}`
 }
@@ -167,29 +167,36 @@ export function generateLocalBusinessStructuredData() {
  */
 export function generateSitemapData(products: any[]) {
   const baseUrl = 'https://www.dopetechnp.com'
+  const currentDate = new Date()
   
   const urls = [
     {
       url: baseUrl,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'daily',
       priority: 1.0
     },
     {
       url: `${baseUrl}/support`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.8
     },
     {
       url: `${baseUrl}/terms`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.5
     },
+    {
+      url: `${baseUrl}/sitemap.xml`,
+      lastModified: currentDate,
+      changeFrequency: 'weekly',
+      priority: 0.7
+    },
     ...products.map(product => ({
       url: `${baseUrl}${generateProductUrl(product)}`,
-      lastModified: new Date(),
+      lastModified: currentDate,
       changeFrequency: 'weekly',
       priority: 0.9
     }))
