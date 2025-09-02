@@ -75,6 +75,30 @@ const nextConfig = {
     ]
   },
   
+  // Ensure public folder is properly served
+  async headers() {
+    return [
+      {
+        source: '/robots.txt',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'text/plain',
+          },
+        ],
+      },
+      {
+        source: '/sitemap.xml',
+        headers: [
+          {
+            key: 'Content-Type',
+            value: 'application/xml',
+          },
+        ],
+      },
+    ]
+  },
+  
   // Enhanced headers for better caching
   async headers() {
     return [
