@@ -25,7 +25,7 @@ export async function DELETE(request: NextRequest) {
     if (imageData.image_file_name) {
       const { error: storageError } = await supabaseAdmin.storage
         .from('hero-images')
-        .remove([imageData.image_file_name])
+        .remove([imageData.image_file_name as string])
 
       if (storageError) {
         console.error('❌ Error deleting from storage:', storageError)

@@ -291,7 +291,7 @@ export function ProductImageManager({ productId, onImagesChange, initialImages =
                              {/* Image info */}
                <div className="p-3">
                  <p className="text-sm text-gray-300">Image {index + 1}</p>
-                 <p className="text-xs text-gray-500">Order: {image.display_order || image.image_order || image.sort_order || index + 1}</p>
+                 <p className="text-xs text-gray-500">Order: {image.display_order || index + 1}</p>
                </div>
             </div>
           ))}

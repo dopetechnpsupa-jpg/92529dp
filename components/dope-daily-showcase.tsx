@@ -90,8 +90,6 @@ export function DopeDailyShowcase({
         hidden_on_home: false,
         rating: 4.8,
         reviews: 1250,
-        stock_quantity: 50,
-        color: "Pearl White",
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString()
       },
@@ -112,8 +110,6 @@ export function DopeDailyShowcase({
         hidden_on_home: false,
         rating: 4.6,
         reviews: 890,
-        stock_quantity: 25,
-        color: "Black",
         created_at: new Date().toISOString(),
         updated_at: new Date().toISOString()
       }

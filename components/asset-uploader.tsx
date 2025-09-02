@@ -68,7 +68,7 @@ export function AssetUploader() {
         })
       }, 100)
 
-      const result = await uploadAsset(selectedFile, assetName.trim(), assetType)
+      const result = await uploadAsset(selectedFile, assetName.trim(), assetType as "image" | "logo" | "video")
       
       clearInterval(progressInterval)
       setUploadProgress(100)

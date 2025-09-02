@@ -94,7 +94,7 @@ export const DraggableMarquee: React.FC<DraggableMarqueeProps> = ({
   // Handle product click based on mobile/desktop behavior
   const handleProductClick = (product: Product, e: React.MouseEvent) => {
     if (isMobile) {
-      const productKey = product.uniqueKey || `product-${product.id}`;
+      const productKey = `product-${product.id}`;
       
       if (clickedProducts.has(productKey)) {
         // Second click - navigate to product details

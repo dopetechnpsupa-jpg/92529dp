@@ -222,7 +222,10 @@ async function sendNotificationEmail(orderData: CheckoutData, orderDbId: number,
         orderId: orderData.orderId,
         customerInfo: orderData.customerInfo,
         receiverInfo: orderData.receiverInfo,
-        cart: orderData.cart,
+        cart: orderData.cart.map(item => ({
+          ...item,
+          image_url: item.image
+        })),
         total: orderData.total,
         paymentOption: orderData.paymentOption,
         receiptUrl

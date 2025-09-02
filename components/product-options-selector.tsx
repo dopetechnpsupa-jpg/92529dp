@@ -37,7 +37,7 @@ export function ProductOptionsSelector({
       return product.features.filter(feature => feature && feature.trim().length > 0)
     }
     if (typeof product.features === 'string') {
-      return product.features.trim().length > 0 ? [product.features] : []
+      return product.features && typeof product.features === 'string' && product.features.trim().length > 0 ? [product.features] : []
     }
     return []
   })()
