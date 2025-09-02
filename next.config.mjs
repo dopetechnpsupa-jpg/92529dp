@@ -61,6 +61,20 @@ const nextConfig = {
   // Enhanced asset optimization
   assetPrefix: process.env.NODE_ENV === 'production' ? '' : '',
   
+  // Ensure static files are served from public folder
+  async rewrites() {
+    return [
+      {
+        source: '/robots.txt',
+        destination: '/robots.txt',
+      },
+      {
+        source: '/sitemap.xml',
+        destination: '/sitemap.xml',
+      },
+    ]
+  },
+  
   // Enhanced headers for better caching
   async headers() {
     return [
