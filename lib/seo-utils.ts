@@ -251,35 +251,65 @@ export function generateLocalBusinessStructuredData() {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Product",
-            "name": "Gaming Keyboards"
+            "name": "Gaming Keyboards",
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              "priceCurrency": "NPR",
+              "price": "0"
+            }
           }
         },
         {
           "@type": "Offer", 
           "itemOffered": {
             "@type": "Product",
-            "name": "Gaming Mouse"
+            "name": "Gaming Mouse",
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              "priceCurrency": "NPR",
+              "price": "0"
+            }
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Product", 
-            "name": "Gaming Headphones"
+            "name": "Gaming Headphones",
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              "priceCurrency": "NPR",
+              "price": "0"
+            }
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Product",
-            "name": "PC Accessories"
+            "name": "PC Accessories",
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              "priceCurrency": "NPR",
+              "price": "0"
+            }
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Product",
-            "name": "Mobile Gadgets"
+            "name": "Mobile Gadgets",
+            "offers": {
+              "@type": "Offer",
+              "availability": "https://schema.org/InStock",
+              "priceCurrency": "NPR",
+              "price": "0"
+            }
           }
         }
       ]
