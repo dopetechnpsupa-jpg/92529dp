@@ -311,7 +311,14 @@ export function generateProductCategoryStructuredData() {
             "@type": "Brand",
             "name": "Dopetech Nepal"
           },
-          "category": "Gaming Keyboards"
+          "category": "Gaming Keyboards",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "NPR",
+            "price": "0",
+            "description": "Premium gaming keyboards available at Dopetech Nepal"
+          }
         }
       },
       {
@@ -326,7 +333,14 @@ export function generateProductCategoryStructuredData() {
             "@type": "Brand",
             "name": "Dopetech Nepal"
           },
-          "category": "Gaming Mouse"
+          "category": "Gaming Mouse",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "NPR",
+            "price": "0",
+            "description": "High-performance gaming mouse available at Dopetech Nepal"
+          }
         }
       },
       {
@@ -341,7 +355,14 @@ export function generateProductCategoryStructuredData() {
             "@type": "Brand",
             "name": "Dopetech Nepal"
           },
-          "category": "Gaming Headphones"
+          "category": "Gaming Headphones",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "NPR",
+            "price": "0",
+            "description": "Professional gaming headphones available at Dopetech Nepal"
+          }
         }
       },
       {
@@ -356,7 +377,14 @@ export function generateProductCategoryStructuredData() {
             "@type": "Brand",
             "name": "Dopetech Nepal"
           },
-          "category": "PC Accessories"
+          "category": "PC Accessories",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "NPR",
+            "price": "0",
+            "description": "Complete range of PC accessories available at Dopetech Nepal"
+          }
         }
       },
       {
@@ -372,7 +400,14 @@ export function generateProductCategoryStructuredData() {
             "@type": "Brand",
             "name": "Dopetech Nepal"
           },
-          "category": "Mobile Gadgets"
+          "category": "Mobile Gadgets",
+          "offers": {
+            "@type": "Offer",
+            "availability": "https://schema.org/InStock",
+            "priceCurrency": "NPR",
+            "price": "0",
+            "description": "Premium mobile gadgets available at Dopetech Nepal"
+          }
         }
       }
     ]
