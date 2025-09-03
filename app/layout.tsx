@@ -78,7 +78,7 @@ export const metadata: Metadata = {
     siteName: 'Dopetech Nepal',
     images: [
       {
-        url: '/logo/dopelogo.svg',
+        url: '/logo/LOGO.svg',
         width: 1200,
         height: 630,
         alt: 'Dopetech Nepal',
@@ -89,7 +89,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Dopetech Nepal | Gaming Keyboards, Mouse & Headphones in Nepal',
     description: 'Shop premium gaming keyboards, mouse, headphones & PC accessories at Dopetech Nepal. Dopetech Nepal brings you the best gear for your perfect setup.',
-    images: ['/logo/dopelogo.svg'],
+    images: ['/logo/LOGO.svg'],
     creator: '@dopetech_np',
   },
   verification: {
@@ -132,7 +132,7 @@ export default function RootLayout({
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Outfit:wght@800&display=swap" />
         
         {/* Preload critical resources */}
-        <link rel="preload" href="/logo/dopelogo.svg" as="image" type="image/svg+xml" />
+        <link rel="preload" href="/logo/LOGO.svg" as="image" type="image/svg+xml" />
         <link rel="preload" href="/logo/simple-logo.svg" as="image" type="image/svg+xml" />
         <link rel="preload" href="/placeholder-product.svg" as="image" type="image/svg+xml" />
 
@@ -149,7 +149,13 @@ export default function RootLayout({
         {/* PWA manifest */}
         <link rel="manifest" href="/manifest.json" />
         
-        {/* Favicon - Will be dynamically set by DynamicFavicon component */}
+        {/* Favicon - Static favicon for SEO and browser compatibility */}
+        <link rel="icon" type="image/svg+xml" href="/logo/LOGO.svg" />
+        <link rel="icon" type="image/png" href="/logo/LOGO.svg" />
+        <link rel="apple-touch-icon" href="/logo/LOGO.svg" />
+        <link rel="shortcut icon" href="/logo/LOGO.svg" />
+        
+        {/* Dynamic favicon component for additional functionality */}
         
         {/* Performance hints */}
         <link rel="dns-prefetch" href="//www.google-analytics.com" />

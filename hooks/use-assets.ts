@@ -3,7 +3,7 @@ import { getLogoUrl, getVideoUrl, uploadAsset, listAssets, deleteAsset } from '@
 import type { Asset } from '@/lib/assets'
 
 export function useAssets() {
-  const [logoUrl, setLogoUrl] = useState<string>('/logo/dopelogo.svg')
+  const [logoUrl, setLogoUrl] = useState<string>('/logo/LOGO.svg')
   const [videoUrl, setVideoUrl] = useState<string>('')
   const [assets, setAssets] = useState<Asset[]>([])
   const [loading, setLoading] = useState(true)
@@ -26,7 +26,7 @@ export function useAssets() {
       ])
 
       // Use results or fallbacks
-      setLogoUrl(logo.status === 'fulfilled' ? logo.value : '/logo/dopelogo.svg')
+      setLogoUrl(logo.status === 'fulfilled' ? logo.value : '/logo/LOGO.svg')
       setVideoUrl(video.status === 'fulfilled' ? video.value : '')
 
       // Load all assets list (non-blocking)
@@ -42,7 +42,7 @@ export function useAssets() {
       console.error('Error loading assets:', err)
       setError('Failed to load assets')
       // Ensure we have fallbacks
-      setLogoUrl('/logo/dopelogo.svg')
+      setLogoUrl('/logo/LOGO.svg')
       setVideoUrl('')
     } finally {
       setLoading(false)
@@ -111,7 +111,7 @@ export function useAssets() {
 
 // Optimized hook for getting just the logo URL with caching
 export function useLogoUrl() {
-  const [logoUrl, setLogoUrl] = useState<string>('/logo/dopelogo.svg')
+  const [logoUrl, setLogoUrl] = useState<string>('/logo/LOGO.svg')
   const [loading, setLoading] = useState(false) // Start with false since we have fallback
 
   useEffect(() => {
@@ -144,8 +144,8 @@ export function useLogoUrl() {
       } catch (err) {
         console.error('❌ Error loading logo:', err)
         // Keep fallback
-        setLogoUrl('/logo/dopelogo.svg')
-        console.log('🔄 Using fallback logo: /logo/dopelogo.svg')
+        setLogoUrl('/logo/LOGO.svg')
+        console.log('🔄 Using fallback logo: /logo/LOGO.svg')
       } finally {
         setLoading(false)
       }

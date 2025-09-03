@@ -138,7 +138,7 @@ export async function getLogoUrl(): Promise<string> {
   }
   
   // Immediate fallback to local file
-  return '/logo/dopelogo.svg'
+  return '/logo/LOGO.svg'
 }
 
 // Get video URL with immediate fallback

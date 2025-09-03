@@ -23,7 +23,7 @@ export default function SEOOptimizer({
   structuredData
 }: SEOOptimizerProps) {
   const { logoUrl, loading: logoLoading } = useLogoUrl()
-  const image = logoLoading ? "/logo/dopelogo.svg" : logoUrl
+      const image = logoLoading ? "/logo/LOGO.svg" : logoUrl
   useEffect(() => {
     // Update page title dynamically
     if (title) {
@@ -111,7 +111,7 @@ export const defaultStructuredData = {
   "@type": "Organization",
   "name": "DopeTech Nepal",
   "url": "https://dopetech-nepal.com",
-        "logo": "https://dopetech-nepal.com/logo/dopelogo.svg",
+        "logo": "https://dopetech-nepal.com/logo/LOGO.svg",
   "description": "Premium tech gear from DopeTech Nepal. Mechanical keyboards, gaming mice, wireless headphones, and more.",
   "address": {
     "@type": "PostalAddress",

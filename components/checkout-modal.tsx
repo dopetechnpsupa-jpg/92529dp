@@ -254,7 +254,7 @@ export default function CheckoutModal({ isOpen, onClose, cart, total }: Checkout
         {/* Header */}
         <div className="flex items-center justify-between p-4 md:p-6 border-b border-white/20 bg-white/10 backdrop-blur-sm animate-slide-in-down">
           <div className="flex items-center space-x-3 md:space-x-4">
-                            <img src={logoLoading ? "/logo/dopelogo.svg" : logoUrl} alt="DopeTech" className="h-6 md:h-8 w-auto" />
+                            <img src={logoLoading ? "/logo/LOGO.svg" : logoUrl} alt="DopeTech" className="h-6 md:h-8 w-auto" />
             <span className="text-base md:text-lg font-semibold text-[#F7DD0F]">
               {activeTab === 'payment-selection' ? 'Payment Options' : 
                activeTab === 'payment' ? 'Payment' : 

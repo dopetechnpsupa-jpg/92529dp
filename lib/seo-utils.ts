@@ -65,7 +65,7 @@ export function generateOrganizationStructuredData() {
     "@type": "Organization",
     "name": "DopeTech Nepal",
     "url": "https://www.dopetechnp.com",
-    "logo": "https://www.dopetechnp.com/logo/dopelogo.svg",
+    "logo": "https://www.dopetechnp.com/logo/LOGO.svg",
     "description": "Premium tech gear and gaming peripherals in Nepal",
     "address": {
       "@type": "PostalAddress",
