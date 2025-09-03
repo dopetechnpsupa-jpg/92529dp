@@ -1,10 +1,10 @@
 "use client"
 
 import { useEffect } from 'react'
-import { generateOrganizationStructuredData, generateLocalBusinessStructuredData } from '@/lib/seo-utils'
+import { generateOrganizationStructuredData, generateLocalBusinessStructuredData, generateProductCategoryStructuredData, generateGamingGearFAQStructuredData } from '@/lib/seo-utils'
 
 interface StructuredDataProps {
-  type: 'organization' | 'local-business' | 'product' | 'breadcrumb' | 'faq'
+  type: 'organization' | 'local-business' | 'product' | 'breadcrumb' | 'faq' | 'product-category'
   data?: any
 }
 
@@ -19,6 +19,9 @@ export function StructuredData({ type, data }: StructuredDataProps) {
       case 'local-business':
         structuredData = generateLocalBusinessStructuredData()
         break
+      case 'product-category':
+        structuredData = generateProductCategoryStructuredData()
+        break
       case 'product':
         structuredData = data
         break
@@ -26,7 +29,7 @@ export function StructuredData({ type, data }: StructuredDataProps) {
         structuredData = data
         break
       case 'faq':
-        structuredData = data
+        structuredData = data && data.length > 0 ? data : generateGamingGearFAQStructuredData()
         break
       default:
         return

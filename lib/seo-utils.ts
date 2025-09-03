@@ -64,23 +64,47 @@ export function generateOrganizationStructuredData() {
     "@context": "https://schema.org",
     "@type": "Organization",
     "name": "DopeTech Nepal",
+    "alternateName": ["Dopetech", "Dopetech_np", "Dopetech Nepal"],
     "url": "https://www.dopetechnp.com",
     "logo": "https://www.dopetechnp.com/logo/LOGO.svg",
-    "description": "Premium tech gear and gaming peripherals in Nepal",
+    "description": "Dopetech Nepal - Your premier destination for gaming keyboards, mechanical keyboards, gaming mouse, wireless mouse, gaming headphones, PC accessories, mobile gadgets, and tech accessories in Nepal. Shop the best gaming gear and computer peripherals.",
+    "slogan": "Premium Gaming Gear & Tech Accessories in Nepal",
     "address": {
       "@type": "PostalAddress",
       "addressCountry": "NP",
-      "addressLocality": "Kathmandu",
-      "addressRegion": "Bagmati"
+      "addressLocality": "Patan",
+      "addressRegion": "Bagmati",
+      "postalCode": "44600"
     },
     "contactPoint": {
       "@type": "ContactPoint",
       "contactType": "customer service",
-      "email": "dopetechnp@gmail.com"
+      "email": "dopetechnp@gmail.com",
+      "availableLanguage": ["English", "Nepali"]
     },
     "sameAs": [
-      "https://instagram.com/dopetech_np"
-    ]
+      "https://instagram.com/dopetech_np",
+      "https://www.facebook.com/dopetech.nepal",
+      "https://twitter.com/dopetech_np"
+    ],
+    "knowsAbout": [
+      "Gaming Keyboards",
+      "Mechanical Keyboards", 
+      "Gaming Mouse",
+      "Wireless Mouse",
+      "Gaming Headphones",
+      "PC Accessories",
+      "Gaming Gear",
+      "Tech Accessories",
+      "Computer Peripherals",
+      "Mobile Gadgets",
+      "Gaming Setup",
+      "Esports Equipment"
+    ],
+    "areaServed": {
+      "@type": "Country",
+      "name": "Nepal"
+    }
   }
 }
 
@@ -119,6 +143,40 @@ export function generateFAQStructuredData(faqs: Array<{ question: string; answer
 }
 
 /**
+ * Generate gaming gear FAQ structured data with target keywords
+ */
+export function generateGamingGearFAQStructuredData() {
+  const faqs = [
+    {
+      question: "Where can I buy gaming keyboards in Nepal?",
+      answer: "Dopetech Nepal offers the best selection of gaming keyboards and mechanical keyboards in Nepal. Visit our store in Patan Mangalbazar or shop online at dopetechnp.com for premium gaming gear."
+    },
+    {
+      question: "What gaming mouse options are available in Nepal?",
+      answer: "Dopetech Nepal provides high-quality gaming mouse and wireless mouse options in Nepal. We offer various brands and models suitable for different gaming needs and preferences."
+    },
+    {
+      question: "Do you sell gaming headphones in Nepal?",
+      answer: "Yes, Dopetech Nepal is your premier destination for gaming headphones and headsets in Nepal. We offer professional-grade audio equipment for gamers and content creators."
+    },
+    {
+      question: "What PC accessories do you offer in Nepal?",
+      answer: "Dopetech Nepal provides a complete range of PC accessories and computer peripherals in Nepal, including gaming gear, tech accessories, and mobile gadgets for your perfect setup."
+    },
+    {
+      question: "Is Dopetech Nepal the best tech store in Nepal?",
+      answer: "Dopetech Nepal is recognized as one of the premier tech stores in Nepal, specializing in gaming keyboards, mechanical keyboards, gaming mouse, wireless mouse, gaming headphones, and PC accessories."
+    },
+    {
+      question: "Where is Dopetech Nepal located?",
+      answer: "Dopetech Nepal is located in Patan Mangalbazar, Kathmandu, Nepal. We serve customers throughout Nepal with premium gaming gear and tech accessories."
+    }
+  ]
+  
+  return generateFAQStructuredData(faqs)
+}
+
+/**
  * Generate local business structured data
  */
 export function generateLocalBusinessStructuredData() {
@@ -126,21 +184,23 @@ export function generateLocalBusinessStructuredData() {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "DopeTech Nepal",
-    "description": "Premium tech gear and gaming peripherals store in Nepal",
+    "alternateName": ["Dopetech", "Dopetech_np", "Dopetech Nepal"],
+    "description": "Dopetech Nepal - Your premier destination for gaming keyboards, mechanical keyboards, gaming mouse, wireless mouse, gaming headphones, PC accessories, mobile gadgets, and tech accessories in Nepal. Shop the best gaming gear and computer peripherals.",
     "url": "https://www.dopetechnp.com",
-    "telephone": "+977-XXXXXXXXX",
+    "telephone": "+977-9808640750",
+    "email": "dopetechnp@gmail.com",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Kathmandu",
-      "addressLocality": "Kathmandu",
+      "streetAddress": "Patan Mangalbazar",
+      "addressLocality": "Patan",
       "addressRegion": "Bagmati",
       "postalCode": "44600",
       "addressCountry": "NP"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": 27.7172,
-      "longitude": 85.3240
+      "latitude": 27.6726,
+      "longitude": 85.3249
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
@@ -158,7 +218,164 @@ export function generateLocalBusinessStructuredData() {
     },
     "priceRange": "$$",
     "currenciesAccepted": "NPR",
-    "paymentAccepted": "Cash, Credit Card, Digital Payment"
+    "paymentAccepted": ["Cash", "Digital Payment", "Bank Transfer"],
+    "category": [
+      "Gaming Store",
+      "Computer Store", 
+      "Electronics Store",
+      "Tech Accessories Store",
+      "Gaming Gear Store"
+    ],
+    "serviceType": [
+      "Gaming Keyboards",
+      "Mechanical Keyboards",
+      "Gaming Mouse", 
+      "Wireless Mouse",
+      "Gaming Headphones",
+      "PC Accessories",
+      "Mobile Gadgets",
+      "Tech Accessories",
+      "Computer Peripherals",
+      "Gaming Setup",
+      "Esports Equipment"
+    ],
+    "areaServed": {
+      "@type": "Country",
+      "name": "Nepal"
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Gaming Gear & Tech Accessories",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Gaming Keyboards"
+          }
+        },
+        {
+          "@type": "Offer", 
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Gaming Mouse"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product", 
+            "name": "Gaming Headphones"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "PC Accessories"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Product",
+            "name": "Mobile Gadgets"
+          }
+        }
+      ]
+    }
+  }
+}
+
+/**
+ * Generate product category structured data
+ */
+export function generateProductCategoryStructuredData() {
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "name": "Gaming Gear & Tech Accessories in Nepal",
+    "description": "Complete collection of gaming keyboards, mechanical keyboards, gaming mouse, wireless mouse, gaming headphones, PC accessories, mobile gadgets, and tech accessories available at Dopetech Nepal",
+    "url": "https://www.dopetechnp.com",
+    "numberOfItems": 5,
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "item": {
+          "@type": "Product",
+          "name": "Gaming Keyboards in Nepal",
+          "description": "Premium gaming keyboards and mechanical keyboards available at Dopetech Nepal",
+          "url": "https://www.dopetechnp.com",
+          "brand": {
+            "@type": "Brand",
+            "name": "Dopetech Nepal"
+          },
+          "category": "Gaming Keyboards"
+        }
+      },
+      {
+        "@type": "ListItem", 
+        "position": 2,
+        "item": {
+          "@type": "Product",
+          "name": "Gaming Mouse in Nepal",
+          "description": "High-performance gaming mouse and wireless mouse available at Dopetech Nepal",
+          "url": "https://www.dopetechnp.com",
+          "brand": {
+            "@type": "Brand",
+            "name": "Dopetech Nepal"
+          },
+          "category": "Gaming Mouse"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "item": {
+          "@type": "Product",
+          "name": "Gaming Headphones in Nepal",
+          "description": "Professional gaming headphones and headsets available at Dopetech Nepal",
+          "url": "https://www.dopetechnp.com",
+          "brand": {
+            "@type": "Brand",
+            "name": "Dopetech Nepal"
+          },
+          "category": "Gaming Headphones"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 4,
+        "item": {
+          "@type": "Product",
+          "name": "PC Accessories in Nepal",
+          "description": "Complete range of PC accessories and computer peripherals available at Dopetech Nepal",
+          "url": "https://www.dopetechnp.com",
+          "brand": {
+            "@type": "Brand",
+            "name": "Dopetech Nepal"
+          },
+          "category": "PC Accessories"
+        }
+      },
+      {
+        "@type": "ListItem",
+        "position": 5,
+        "item": {
+          "@type": "Product",
+          "name": "Mobile Gadgets in Nepal",
+          "keyword": "mobile and pc gadgets in Nepal",
+          "description": "Premium mobile gadgets and smartphone accessories available at Dopetech Nepal",
+          "url": "https://www.dopetechnp.com",
+          "brand": {
+            "@type": "Brand",
+            "name": "Dopetech Nepal"
+          },
+          "category": "Mobile Gadgets"
+        }
+      }
+    ]
   }
 }
 

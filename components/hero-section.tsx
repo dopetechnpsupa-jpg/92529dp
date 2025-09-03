@@ -17,7 +17,11 @@ export default function HeroSection({ cartCount, onCartClick }: HeroSectionProps
   const { logoUrl, loading: logoLoading } = useLogoUrl()
 
   return (
-    <section className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center overflow-hidden">
+    <section 
+      className="relative min-h-screen bg-gradient-to-br from-black via-gray-900 to-black flex items-center justify-center overflow-hidden"
+      aria-label="Dopetech Nepal - Premium Gaming Gear & Tech Accessories in Nepal"
+      role="banner"
+    >
       {/* Background Elements */}
       <div className="absolute inset-0">
         <div className="absolute top-20 left-20 w-72 h-72 bg-[#F7DD0F]/10 rounded-full blur-3xl animate-pulse animate-float" />
@@ -45,8 +49,10 @@ export default function HeroSection({ cartCount, onCartClick }: HeroSectionProps
               <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
               <input
                 type="text"
-                placeholder="Search products..."
+                placeholder="Search gaming keyboards, mouse, headphones, PC accessories..."
                 className="bg-white/10 backdrop-blur-sm border border-white/20 rounded-lg pl-10 pr-4 py-2 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-[#F7DD0F] transition-all premium-transition"
+                aria-label="Search for gaming gear and tech accessories"
+                title="Search for gaming keyboards, gaming mouse, gaming headphones, PC accessories, mobile gadgets, and tech accessories in Nepal"
               />
             </div>
 

@@ -31,11 +31,11 @@ const kelptA2ExtraBold = {
 export const metadata: Metadata = {
   metadataBase: new URL('https://www.dopetechnp.com'),
   title: {
-    default: "Dopetech Nepal | Gaming Keyboards, Mouse & Headphones in Nepal",
+    default: "Dopetech Nepal | Premium Gaming Keyboards, Mouse, Headphones & Tech Accessories in Nepal",
     template: "%s | Dopetech Nepal"
   },
-  description: "Shop premium gaming keyboards, mouse, headphones & PC accessories at Dopetech Nepal. Dopetech Nepal brings you the best gear for your perfect setup.",
-  keywords: "gaming keyboards, gaming mouse, gaming headphones, PC accessories, Nepal, Dopetech Nepal, gaming gear, mechanical keyboard, wireless mouse, gaming setup, tech accessories, computer peripherals, Nepal tech store",
+  description: "Dopetech Nepal - Your premier destination for gaming keyboards, mechanical keyboards, gaming mouse, wireless mouse, gaming headphones, PC accessories, mobile gadgets, and tech accessories in Nepal. Shop the best gaming gear and computer peripherals.",
+  keywords: "Dopetech, Dopetech Nepal, Ajazz keyboard in Nepal, Dopetech_np, Premium keyboard in Nepal, gaming mouse in Nepal, gaming accessories in Nepal, mobile and pc gadgets in Nepal, tech store in Nepal, gaming keyboards, mechanical keyboard, wireless mouse, gaming headphones, PC accessories, gaming gear, gaming setup, tech accessories, computer peripherals, Nepal tech store, gaming peripherals, RGB keyboard, wireless gaming mouse, gaming headset, PC gaming, esports gear, Nepal gaming, Kathmandu tech store, Patan tech shop, gaming equipment, computer accessories, laptop accessories, mobile accessories, smartphone accessories, tablet accessories, gaming chair, gaming desk, gaming monitor, gaming speakers, gaming microphone, streamer gear, content creator equipment, Nepal esports, gaming community Nepal",
   authors: [{ name: "Dopetech Nepal" }],
   creator: "Dopetech Nepal",
   publisher: "Dopetech Nepal",
@@ -73,24 +73,25 @@ export const metadata: Metadata = {
     type: 'website',
     locale: 'en_US',
     url: 'https://www.dopetechnp.com',
-    title: 'Dopetech Nepal | Gaming Keyboards, Mouse & Headphones in Nepal',
-    description: 'Shop premium gaming keyboards, mouse, headphones & PC accessories at Dopetech Nepal. Dopetech Nepal brings you the best gear for your perfect setup.',
+    title: 'Dopetech Nepal | Premium Gaming Keyboards, Mouse, Headphones & Tech Accessories in Nepal',
+    description: 'Dopetech Nepal - Your premier destination for gaming keyboards, mechanical keyboards, gaming mouse, wireless mouse, gaming headphones, PC accessories, mobile gadgets, and tech accessories in Nepal. Shop the best gaming gear and computer peripherals.',
     siteName: 'Dopetech Nepal',
     images: [
       {
         url: '/logo/LOGO.svg',
         width: 1200,
         height: 630,
-        alt: 'Dopetech Nepal',
+        alt: 'Dopetech Nepal - Premium Gaming Gear & Tech Accessories',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Dopetech Nepal | Gaming Keyboards, Mouse & Headphones in Nepal',
-    description: 'Shop premium gaming keyboards, mouse, headphones & PC accessories at Dopetech Nepal. Dopetech Nepal brings you the best gear for your perfect setup.',
+    title: 'Dopetech Nepal | Premium Gaming Keyboards, Mouse, Headphones & Tech Accessories in Nepal',
+    description: 'Dopetech Nepal - Your premier destination for gaming keyboards, mechanical keyboards, gaming mouse, wireless mouse, gaming headphones, PC accessories, mobile gadgets, and tech accessories in Nepal. Shop the best gaming gear and computer peripherals.',
     images: ['/logo/LOGO.svg'],
     creator: '@dopetech_np',
+    site: '@dopetech_np',
   },
   verification: {
     google: 'your-google-verification-code',
@@ -145,6 +146,28 @@ export default function RootLayout({
         <meta name="apple-mobile-web-app-title" content="DopeTech" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
         <meta name="format-detection" content="telephone=no" />
+        
+        {/* Additional SEO meta tags for keyword targeting */}
+        <meta name="keywords" content="Dopetech, Dopetech Nepal, Ajazz keyboard in Nepal, Dopetech_np, Premium keyboard in Nepal, gaming mouse in Nepal, gaming accessories in Nepal, mobile and pc gadgets in Nepal, tech store in Nepal, gaming keyboards, mechanical keyboard, wireless mouse, gaming headphones, PC accessories, gaming gear, gaming setup, tech accessories, computer peripherals, Nepal tech store, gaming peripherals, RGB keyboard, wireless gaming mouse, gaming headset, PC gaming, esports gear, Nepal gaming, Kathmandu tech store, Patan tech shop, gaming equipment, computer accessories, laptop accessories, mobile accessories, smartphone accessories, tablet accessories, gaming chair, gaming desk, gaming monitor, gaming speakers, gaming microphone, streamer gear, content creator equipment, Nepal esports, gaming community Nepal" />
+        <meta name="author" content="Dopetech Nepal" />
+        <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        <meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+        
+        {/* Geographic and business meta tags */}
+        <meta name="geo.region" content="NP" />
+        <meta name="geo.placename" content="Kathmandu, Patan, Nepal" />
+        <meta name="geo.position" content="27.6726;85.3249" />
+        <meta name="ICBM" content="27.6726, 85.3249" />
+        
+        {/* Business and service meta tags */}
+        <meta name="business:contact_data:street_address" content="Patan Mangalbazar" />
+        <meta name="business:contact_data:locality" content="Patan" />
+        <meta name="business:contact_data:region" content="Bagmati" />
+        <meta name="business:contact_data:postal_code" content="44600" />
+        <meta name="business:contact_data:country_name" content="Nepal" />
+        <meta name="business:contact_data:phone_number" content="+977-XXXXXXXXX" />
+        <meta name="business:contact_data:email" content="dopetechnp@gmail.com" />
         
         {/* PWA manifest */}
         <link rel="manifest" href="/manifest.json" />
