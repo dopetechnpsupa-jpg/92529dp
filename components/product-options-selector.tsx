@@ -9,7 +9,7 @@ interface ProductOptionsSelectorProps {
   product: Product
   onOptionsChange: (color: string | undefined, features: string[]) => void
   initialColor?: string
-  initialFeatures?: string[]
+  initialFeatures?: string[] // Only the first feature will be used for single selection
 }
 
 export function ProductOptionsSelector({ 
@@ -19,7 +19,9 @@ export function ProductOptionsSelector({
   initialFeatures = [] 
 }: ProductOptionsSelectorProps) {
   const [selectedColor, setSelectedColor] = useState<string | undefined>(initialColor)
-  const [selectedFeatures, setSelectedFeatures] = useState<string[]>(initialFeatures)
+  const [selectedFeatures, setSelectedFeatures] = useState<string[]>(
+    initialFeatures.length > 0 ? [initialFeatures[0]] : [] // Only take the first feature if multiple provided
+  )
 
   // Available colors - split by comma if multiple colors are provided
   const availableColors = (() => {
@@ -64,8 +66,8 @@ export function ProductOptionsSelector({
   const handleFeatureToggle = (feature: string) => {
     setSelectedFeatures(prev => 
       prev.includes(feature) 
-        ? prev.filter(f => f !== feature)
-        : [...prev, feature]
+        ? [] // Deselect if already selected
+        : [feature] // Select only this feature (single selection)
     )
   }
 
