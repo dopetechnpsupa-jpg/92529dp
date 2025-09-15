@@ -88,6 +88,7 @@ import { useCart } from "@/contexts/cart-context"
 import { supabase } from "@/lib/supabase"
 import { StructuredData } from "@/components/structured-data"
 import { generateProductUrl, generateSlug } from "@/lib/seo-utils"
+import DashainOverlay from "@/components/dashain-overlay"
 
 // Client-side only component to prevent hydration mismatches
 const ClientOnly = ({ children, fallback = null }: { children: React.ReactNode, fallback?: React.ReactNode }) => {
@@ -349,6 +350,7 @@ export default function DopeTechEcommerce() {
   
   const [showSplash, setShowSplash] = useState(initialSplashState)
   const [isAppReady, setIsAppReady] = useState(initialAppReadyState)
+  const [showDashainOverlay, setShowDashainOverlay] = useState(false)
 
   const [editingCartItem, setEditingCartItem] = useState<number | null>(null)
   const { 
@@ -409,6 +411,13 @@ export default function DopeTechEcommerce() {
   // Handle splash screen completion
   const handleSplashComplete = useCallback(() => {
     setShowSplash(false)
+    // Show Dashain overlay after splash screen
+    setShowDashainOverlay(true)
+  }, [])
+
+  // Handle Dashain overlay completion
+  const handleDashainOverlayComplete = useCallback(() => {
+    setShowDashainOverlay(false)
     setIsAppReady(true)
   }, [])
 
@@ -1395,9 +1404,14 @@ export default function DopeTechEcommerce() {
         <SplashScreen isVisible={showSplash} onComplete={handleSplashComplete} />
       </ClientOnly>
 
+      {/* Dashain Overlay - Client Only */}
+      <ClientOnly fallback={null}>
+        <DashainOverlay isVisible={showDashainOverlay} onComplete={handleDashainOverlayComplete} />
+      </ClientOnly>
+
       {/* Normal Loading Overlay - for navigation and other loading states */}
-      {/* Only show when splash screen is not visible and app is ready */}
-      {!showSplash && isAppReady && (isLoading || isClientLoading || isDataLoading || isNavigating) && (
+      {/* Only show when splash screen and dashain overlay are not visible and app is ready */}
+      {!showSplash && !showDashainOverlay && isAppReady && (isLoading || isClientLoading || isDataLoading || isNavigating) && (
         <div className="fixed inset-0 bg-black/80 backdrop-blur-sm flex items-center justify-center z-40">
           <div className="text-center">
             <div className="w-12 h-12 border-4 border-[#F7DD0F] border-t-transparent rounded-full animate-spin mx-auto mb-4"></div>
@@ -1407,7 +1421,7 @@ export default function DopeTechEcommerce() {
         </div>
       )}
 
-      {/* Main App Content - Only show when splash is complete */}
+      {/* Main App Content - Only show when splash and dashain overlay are complete */}
       {isAppReady && (
         <PageTransition>
           <div className="text-white min-h-screen transition-colors duration-100 tap-feedback scrollbar-hide gradient-bg">
