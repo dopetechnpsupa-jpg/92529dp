@@ -210,10 +210,11 @@ export function ProductOptionsSelector({
               >
                 <div className="flex items-center space-x-2">
                   <div 
-                    className="w-5 h-5 rounded-full border-2 border-gray-300 shadow-sm ring-2 ring-offset-1 ring-offset-black"
+                    className="w-5 h-5 rounded-full border-2 shadow-sm"
                     style={{ 
                       backgroundColor: getColorValue(color),
-                      borderColor: selectedColor === color ? '#F7DD0F' : '#6b7280'
+                      borderColor: selectedColor === color ? '#F7DD0F' : '#6b7280',
+                      border: `2px solid ${selectedColor === color ? '#F7DD0F' : '#6b7280'}`
                     }}
                     title={color}
                   />
@@ -253,10 +254,11 @@ export function ProductOptionsSelector({
                   <div className="flex items-center space-x-2">
                     {isColorFeatureCombo && colorFromCombo && (
                       <div 
-                        className="w-5 h-5 rounded-full border-2 border-gray-300 shadow-sm ring-2 ring-offset-1 ring-offset-black"
+                        className="w-5 h-5 rounded-full border-2 shadow-sm"
                         style={{ 
                           backgroundColor: getColorValue(colorFromCombo),
-                          borderColor: selectedFeatures.includes(feature) ? '#F7DD0F' : '#6b7280'
+                          borderColor: selectedFeatures.includes(feature) ? '#F7DD0F' : '#6b7280',
+                          border: `2px solid ${selectedFeatures.includes(feature) ? '#F7DD0F' : '#6b7280'}`
                         }}
                         title={colorFromCombo}
                       />
