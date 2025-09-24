@@ -22,7 +22,7 @@ import {
   Star
 } from 'lucide-react'
 import { supabaseAdmin } from '@/lib/supabase'
-import { Product, ProductImage, getProducts, addProduct, updateProduct, deleteProduct, getProductImages, addProductImage, deleteProductImage, setPrimaryImage, reorderProductImages, toggleDopePick, clearProductCache } from '@/lib/products-data'
+import { Product, ProductImage, getProducts, addProduct, updateProduct, deleteProduct, getProductImages, addProductImage, deleteProductImage, setPrimaryImage, reorderProductImages, toggleDopePick, clearProductCache, clearAllCaches } from '@/lib/products-data'
 import { ProductImageManager } from '@/components/product-image-manager'
 import { AssetUploader } from '@/components/asset-uploader'
 import { HeroImageManager } from '@/components/hero-image-manager'
@@ -238,6 +238,14 @@ export default function AdminPage() {
     }
   }
 
+  const handleClearAllCaches = () => {
+    clearAllCaches()
+    toast({
+      title: "Success!",
+      description: "All caches cleared! Changes should now sync to Vercel.",
+    })
+  }
+
   useEffect(() => {
     if (isAuthenticated) {
       fetchProducts()
@@ -273,8 +281,8 @@ export default function AdminPage() {
   const fetchProducts = async () => {
     try {
       setRefreshing(true)
-      // Clear cache to ensure fresh data
-      clearProductCache()
+      // Clear ALL caches to ensure fresh data
+      clearAllCaches()
       const productsData = await getProducts()
       setProducts(productsData)
       toast({
@@ -365,8 +373,8 @@ export default function AdminPage() {
           }
         }
 
-        // Clear cache to ensure changes are reflected everywhere
-        clearProductCache()
+        // Clear ALL caches to ensure changes are reflected everywhere
+        clearAllCaches()
 
         // Update local products array
         setProducts([...products, newProduct])
@@ -440,8 +448,8 @@ export default function AdminPage() {
       const updatedProduct = await updateProduct(editingProduct.id, updateData)
 
       if (updatedProduct) {
-        // Clear cache to ensure changes are reflected everywhere
-        clearProductCache()
+        // Clear ALL caches to ensure changes are reflected everywhere
+        clearAllCaches()
         
         // Update the local products array
         setProducts(products.map(p => p.id === editingProduct.id ? updatedProduct : p))
@@ -477,8 +485,8 @@ export default function AdminPage() {
     try {
       const success = await deleteProduct(productId)
       if (success) {
-        // Clear cache to ensure changes are reflected everywhere
-        clearProductCache()
+        // Clear ALL caches to ensure changes are reflected everywhere
+        clearAllCaches()
         
         // Update local products array
         setProducts(products.filter(p => p.id !== productId))
@@ -787,6 +795,15 @@ export default function AdminPage() {
               >
                 <RefreshCw className={`w-4 h-4 ${refreshing ? 'animate-spin' : ''}`} />
                 <span className="hidden sm:inline">{refreshing ? 'Refreshing...' : 'Refresh'}</span>
+              </button>
+              
+              <button
+                onClick={handleClearAllCaches}
+                className="flex items-center space-x-1 sm:space-x-2 px-2 sm:px-4 py-2 bg-yellow-500/20 hover:bg-yellow-500/30 rounded-lg transition-all duration-200 text-yellow-300 hover:text-yellow-200"
+                title="Clear all caches and force sync to Vercel"
+              >
+                <XCircle className="w-4 h-4" />
+                <span className="hidden sm:inline">Clear Cache</span>
               </button>
               
               <button

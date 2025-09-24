@@ -49,6 +49,37 @@ export function clearProductCache(): void {
   console.log('✅ Product cache cleared successfully');
 }
 
+// Function to clear ALL caches (more comprehensive)
+export function clearAllCaches(): void {
+  console.log('🧹 Clearing ALL caches...');
+  
+  // Clear main cache
+  cache.clear();
+  
+  // Clear product cache
+  productCache.clear();
+  
+  // Clear browser cache if available
+  if (typeof window !== 'undefined') {
+    // Clear localStorage cache entries
+    const keysToRemove = [];
+    for (let i = 0; i < localStorage.length; i++) {
+      const key = localStorage.key(i);
+      if (key && (key.includes('cache') || key.includes('products') || key.includes('dope'))) {
+        keysToRemove.push(key);
+      }
+    }
+    keysToRemove.forEach(key => localStorage.removeItem(key));
+    
+    // Force reload if we're in browser
+    if (window.location) {
+      console.log('🔄 Cache cleared, consider refreshing the page');
+    }
+  }
+  
+  console.log('✅ ALL caches cleared successfully');
+}
+
 // Clean up expired cache entries periodically
 setInterval(() => {
   const now = Date.now();
