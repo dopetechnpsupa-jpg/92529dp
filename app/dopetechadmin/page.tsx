@@ -22,7 +22,7 @@ import {
   Star
 } from 'lucide-react'
 import { supabaseAdmin } from '@/lib/supabase'
-import { Product, ProductImage, getProducts, addProduct, updateProduct, deleteProduct, getProductImages, addProductImage, deleteProductImage, setPrimaryImage, reorderProductImages, toggleDopePick, clearProductCache, clearAllCaches, clearProductCacheById } from '@/lib/products-data'
+import { Product, ProductImage, getProducts, addProduct, updateProduct, deleteProduct, getProductImages, addProductImage, deleteProductImage, setPrimaryImage, reorderProductImages, toggleDopePick, clearProductCache, clearAllCaches, clearProductCacheById, revalidateServerCache } from '@/lib/products-data'
 import { ProductImageManager } from '@/components/product-image-manager'
 import { AssetUploader } from '@/components/asset-uploader'
 import { HeroImageManager } from '@/components/hero-image-manager'
@@ -238,11 +238,12 @@ export default function AdminPage() {
     }
   }
 
-  const handleClearAllCaches = () => {
+  const handleClearAllCaches = async () => {
     clearAllCaches()
+    await revalidateServerCache()
     toast({
       title: "Success!",
-      description: "All caches cleared! Changes should now sync to Vercel.",
+      description: "All caches cleared! Server cache revalidated. Changes should now sync everywhere.",
     })
   }
 
@@ -376,6 +377,7 @@ export default function AdminPage() {
         // Clear ALL caches to ensure changes are reflected everywhere
         clearAllCaches()
         clearProductCacheById(newProduct.id)
+        await revalidateServerCache()
 
         // Update local products array
         setProducts([...products, newProduct])
@@ -452,6 +454,7 @@ export default function AdminPage() {
         // Clear ALL caches to ensure changes are reflected everywhere
         clearAllCaches()
         clearProductCacheById(editingProduct.id)
+        await revalidateServerCache()
         
         // Update the local products array
         setProducts(products.map(p => p.id === editingProduct.id ? updatedProduct : p))
@@ -490,6 +493,7 @@ export default function AdminPage() {
         // Clear ALL caches to ensure changes are reflected everywhere
         clearAllCaches()
         clearProductCacheById(productId)
+        await revalidateServerCache()
         
         // Update local products array
         setProducts(products.filter(p => p.id !== productId))

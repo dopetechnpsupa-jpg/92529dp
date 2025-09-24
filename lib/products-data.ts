@@ -80,6 +80,32 @@ export function clearAllCaches(): void {
   console.log('✅ ALL caches cleared successfully');
 }
 
+// Function to force server-side cache revalidation
+export async function revalidateServerCache(): Promise<void> {
+  try {
+    // Call Next.js revalidate API route
+    const response = await fetch('/api/revalidate', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        paths: ['/', '/product/96-ak-820-pro'], // Add specific product paths
+        secret: process.env.REVALIDATE_SECRET || 'dopetech2024'
+      })
+    });
+    
+    if (response.ok) {
+      console.log('✅ Server cache revalidated successfully');
+    } else {
+      console.log('⚠️ Server cache revalidation failed, but continuing...');
+    }
+  } catch (error) {
+    console.log('⚠️ Server cache revalidation error:', error);
+    // Don't throw error, just log it
+  }
+}
+
 // Function to clear cache for a specific product
 export function clearProductCacheById(productId: number): void {
   console.log(`🧹 Clearing cache for product ID: ${productId}`);
