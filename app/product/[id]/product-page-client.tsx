@@ -84,6 +84,13 @@ export default function ProductPageClient({ product, relatedProducts }: ProductP
     return () => clearTimeout(timer)
   }, [])
 
+  // Debug logging for price changes (commented out for production)
+  // useEffect(() => {
+  //   console.log('💰 Price state updated:', { selectedPrice, selectedColor, selectedFeatures })
+  //   console.log('💰 Price range:', priceRange)
+  //   console.log('💰 Product price:', product.price)
+  // }, [selectedPrice, selectedColor, selectedFeatures, priceRange, product.price])
+
   return (
     <div className="min-h-screen bg-black">
       {/* SEO Structured Data */}

@@ -64,7 +64,7 @@ export function ColorFeatureCombination({
   }
 
   const handleAddCombination = () => {
-    if (newColor.trim() && newFeature.trim() && newPrice.trim()) {
+    if (newColor.trim() && newPrice.trim()) {
       const price = parseFloat(newPrice)
       const originalPrice = newOriginalPrice.trim() ? parseFloat(newOriginalPrice) : undefined
       
@@ -81,16 +81,16 @@ export function ColorFeatureCombination({
       const newCombo: ColorFeatureCombo = {
         id: Date.now().toString(),
         color: newColor.trim(),
-        feature: newFeature.trim(),
+        feature: newFeature.trim() || '', // Allow empty feature
         price: price,
         original_price: originalPrice,
         discount: originalPrice ? Math.round(((originalPrice - price) / originalPrice) * 100) : undefined
       }
       
-      // Check if combination already exists
+      // Check if combination already exists (only check if feature is provided)
       const exists = combinations.some(combo => 
         combo.color.toLowerCase() === newColor.toLowerCase() && 
-        combo.feature.toLowerCase() === newFeature.toLowerCase()
+        (newFeature.trim() ? combo.feature.toLowerCase() === newFeature.toLowerCase() : combo.feature === '')
       )
       
       if (!exists) {
@@ -123,7 +123,7 @@ export function ColorFeatureCombination({
   }
 
   const handleUpdateCombination = () => {
-    if (editingId && newColor.trim() && newFeature.trim() && newPrice.trim()) {
+    if (editingId && newColor.trim() && newPrice.trim()) {
       const price = parseFloat(newPrice)
       const originalPrice = newOriginalPrice.trim() ? parseFloat(newOriginalPrice) : undefined
       
@@ -142,7 +142,7 @@ export function ColorFeatureCombination({
           ? { 
               ...combo, 
               color: newColor.trim(), 
-              feature: newFeature.trim(),
+              feature: newFeature.trim() || '', // Allow empty feature
               price: price,
               original_price: originalPrice,
               discount: originalPrice ? Math.round(((originalPrice - price) / originalPrice) * 100) : undefined
@@ -195,7 +195,7 @@ export function ColorFeatureCombination({
               />
               <div className="flex flex-col">
                 <span className="text-sm text-white font-medium">
-                  {combo.color} | {combo.feature}
+                  {combo.color}{combo.feature ? ` | ${combo.feature}` : ''}
                 </span>
                 <div className="flex items-center space-x-2">
                   <span className="text-xs text-[#F7DD0F] font-bold">
@@ -272,7 +272,7 @@ export function ColorFeatureCombination({
 
               <div>
                 <label className="block text-xs font-medium text-gray-300 mb-2">
-                  Feature
+                  Feature <span className="text-gray-500">(Optional)</span>
                 </label>
                 <input
                   type="text"
@@ -330,7 +330,7 @@ export function ColorFeatureCombination({
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={editingId ? handleUpdateCombination : handleAddCombination}
-                disabled={!newColor.trim() || !newFeature.trim() || !newPrice.trim()}
+                disabled={!newColor.trim() || !newPrice.trim()}
                 className="px-4 py-1 bg-blue-500 text-white text-sm rounded-lg hover:bg-blue-600 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
               >
                 {editingId ? 'Update' : 'Add'}

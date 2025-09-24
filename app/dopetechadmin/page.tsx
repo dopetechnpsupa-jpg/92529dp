@@ -342,7 +342,9 @@ export default function AdminPage() {
         .filter(feature => feature.length > 0)
 
       // Add color-feature combinations to features if any exist
-      const combinationFeatures = colorFeatureCombinations.map(combo => `${combo.color} + ${combo.feature}`)
+      const combinationFeatures = colorFeatureCombinations.map(combo => 
+        combo.feature ? `${combo.color} + ${combo.feature}` : combo.color
+      )
       const allFeatures = [...featuresArray, ...combinationFeatures]
 
       const originalPrice = parseFloat(formData.original_price || formData.price)
@@ -425,7 +427,9 @@ export default function AdminPage() {
         .filter(feature => feature.length > 0)
 
       // Add color-feature combinations to features if any exist
-      const combinationFeatures = colorFeatureCombinations.map(combo => `${combo.color} + ${combo.feature}`)
+      const combinationFeatures = colorFeatureCombinations.map(combo => 
+        combo.feature ? `${combo.color} + ${combo.feature}` : combo.color
+      )
       const allFeatures = [...featuresArray, ...combinationFeatures]
 
       console.log('🔧 Final features array:', allFeatures);
@@ -536,7 +540,7 @@ export default function AdminPage() {
       
       // Get regular features (exclude combination features)
       const existingFeatures = Array.isArray(product.features) ? product.features : []
-      regularFeatures = existingFeatures.filter(feature => !feature.includes(' + '))
+      regularFeatures = existingFeatures.filter(feature => !feature.includes(' + ') && !colorFeatureCombos.some(combo => combo.color === feature))
     } else {
       // Fallback: Parse color-feature combinations from existing features (old format)
       const existingFeatures = Array.isArray(product.features) ? product.features : []
@@ -553,7 +557,23 @@ export default function AdminPage() {
             discount: product.discount
           })
         } else {
-          regularFeatures.push(feature)
+          // Check if this might be a standalone color (common color names)
+          const commonColors = ['black', 'white', 'red', 'green', 'blue', 'yellow', 'orange', 'pink', 'purple', 'grey', 'gray', 'golden', 'avacado', 'gift', 'moon', 'switch']
+          const isColor = commonColors.some(color => feature.toLowerCase().includes(color))
+          
+          if (isColor) {
+            // Treat as a color-only combination
+            colorFeatureCombos.push({
+              id: Math.random().toString(36).substr(2, 9),
+              color: feature.trim(),
+              feature: '', // Empty feature for color-only
+              price: product.price,
+              original_price: product.original_price,
+              discount: product.discount
+            })
+          } else {
+            regularFeatures.push(feature)
+          }
         }
       })
     }

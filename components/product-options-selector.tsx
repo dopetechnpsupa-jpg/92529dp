@@ -60,9 +60,6 @@ export function ProductOptionsSelector({
 
   // Function to find combination price
   const getCombinationPrice = (color: string, feature: string) => {
-    console.log('🔍 Looking for combination price:', { color, feature })
-    console.log('🔍 Available combinations:', colorFeatureCombinations)
-    
     // First try exact match
     let combination = colorFeatureCombinations.find(combo => {
       const colorMatch = combo.color.toLowerCase().trim() === color.toLowerCase().trim()
@@ -90,20 +87,19 @@ export function ProductOptionsSelector({
       })
     }
     
-    console.log('🔍 Found combination:', combination)
     return combination?.price
   }
   
-  // Debug logging
-  console.log('🔍 ProductOptionsSelector Debug:', {
-    productId: product.id,
-    productName: product.name,
-    productColor: product.color,
-    productFeatures: product.features,
-    availableColors,
-    availableFeatures,
-    shouldShow: availableColors.length > 0 || availableFeatures.length > 0
-  })
+  // Debug logging (commented out for production)
+  // console.log('🔍 ProductOptionsSelector Debug:', {
+  //   productId: product.id,
+  //   productName: product.name,
+  //   productColor: product.color,
+  //   productFeatures: product.features,
+  //   availableColors,
+  //   availableFeatures,
+  //   shouldShow: availableColors.length > 0 || availableFeatures.length > 0
+  // })
 
   useEffect(() => {
     // Calculate price based on selections
@@ -112,29 +108,23 @@ export function ProductOptionsSelector({
     if (selectedFeatures.length > 0) {
       // Check if this is a color-feature combination with specific pricing
       const feature = selectedFeatures[0]
-      const combinationPrice = getCombinationPrice(selectedColor || '', feature)
+      
+      // Try to extract color from the feature string (e.g., "Black + Wireless" -> "Black")
+      let colorToUse = selectedColor
+      if (!colorToUse && feature.includes(' + ')) {
+        const [colorPart] = feature.split(' + ')
+        colorToUse = colorPart.trim()
+      }
+      
+      const combinationPrice = getCombinationPrice(colorToUse || '', feature)
       if (combinationPrice) {
         calculatedPrice = combinationPrice
-        console.log('🎯 Found combination price:', {
-          color: selectedColor,
-          feature: feature,
-          price: combinationPrice
-        })
-      } else {
-        console.log('❌ No combination price found for:', {
-          color: selectedColor,
-          feature: feature,
-          availableCombinations: colorFeatureCombinations
-        })
       }
-    } else {
-      console.log('🔄 No valid selection for price calculation:', {
-        selectedColor,
-        selectedFeatures
-      })
     }
     
+    console.log('💰 Setting price:', calculatedPrice)
     setSelectedPrice(calculatedPrice)
+    console.log('🔄 Calling onOptionsChange:', { selectedColor, selectedFeatures, calculatedPrice })
     onOptionsChange(selectedColor, selectedFeatures, calculatedPrice)
   }, [selectedColor, selectedFeatures, onOptionsChange, colorFeatureCombinations])
 
@@ -143,11 +133,14 @@ export function ProductOptionsSelector({
   }
 
   const handleFeatureToggle = (feature: string) => {
-    setSelectedFeatures(prev => 
-      prev.includes(feature) 
+    console.log('🎯 Feature clicked:', feature)
+    setSelectedFeatures(prev => {
+      const newSelection = prev.includes(feature) 
         ? [] // Deselect if already selected
         : [feature] // Select only this feature (single selection)
-    )
+      console.log('🎯 New selection:', newSelection)
+      return newSelection
+    })
   }
 
   const clearSelections = () => {
