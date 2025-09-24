@@ -22,7 +22,7 @@ import {
   Star
 } from 'lucide-react'
 import { supabaseAdmin } from '@/lib/supabase'
-import { Product, ProductImage, getProducts, addProduct, updateProduct, deleteProduct, getProductImages, addProductImage, deleteProductImage, setPrimaryImage, reorderProductImages, toggleDopePick } from '@/lib/products-data'
+import { Product, ProductImage, getProducts, addProduct, updateProduct, deleteProduct, getProductImages, addProductImage, deleteProductImage, setPrimaryImage, reorderProductImages, toggleDopePick, clearProductCache } from '@/lib/products-data'
 import { ProductImageManager } from '@/components/product-image-manager'
 import { AssetUploader } from '@/components/asset-uploader'
 import { HeroImageManager } from '@/components/hero-image-manager'
@@ -273,11 +273,13 @@ export default function AdminPage() {
   const fetchProducts = async () => {
     try {
       setRefreshing(true)
+      // Clear cache to ensure fresh data
+      clearProductCache()
       const productsData = await getProducts()
       setProducts(productsData)
       toast({
         title: "Refreshed!",
-        description: `Loaded ${productsData.length} products`,
+        description: `Loaded ${productsData.length} products (cache cleared)`,
       })
     } catch (error) {
       console.error('Error fetching products:', error)
@@ -363,6 +365,9 @@ export default function AdminPage() {
           }
         }
 
+        // Clear cache to ensure changes are reflected everywhere
+        clearProductCache()
+
         // Update local products array
         setProducts([...products, newProduct])
         
@@ -435,6 +440,9 @@ export default function AdminPage() {
       const updatedProduct = await updateProduct(editingProduct.id, updateData)
 
       if (updatedProduct) {
+        // Clear cache to ensure changes are reflected everywhere
+        clearProductCache()
+        
         // Update the local products array
         setProducts(products.map(p => p.id === editingProduct.id ? updatedProduct : p))
         
@@ -469,6 +477,9 @@ export default function AdminPage() {
     try {
       const success = await deleteProduct(productId)
       if (success) {
+        // Clear cache to ensure changes are reflected everywhere
+        clearProductCache()
+        
         // Update local products array
         setProducts(products.filter(p => p.id !== productId))
         

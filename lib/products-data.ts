@@ -26,6 +26,29 @@ function setCachedData<T>(key: string, data: T, ttl: number): void {
   });
 }
 
+// Function to clear all product-related cache
+export function clearProductCache(): void {
+  console.log('🧹 Clearing product cache...');
+  const keysToDelete = Array.from(cache.keys()).filter(key => 
+    key.includes('products') || 
+    key.includes('product') || 
+    key.includes('dope-picks') || 
+    key.includes('latest') || 
+    key.includes('weekly-picks') || 
+    key.includes('dope-arrivals') || 
+    key.includes('daily-ad')
+  );
+  
+  keysToDelete.forEach(key => {
+    cache.delete(key);
+    console.log('🗑️ Cleared cache key:', key);
+  });
+  
+  // Also clear the product cache
+  productCache.clear();
+  console.log('✅ Product cache cleared successfully');
+}
+
 // Clean up expired cache entries periodically
 setInterval(() => {
   const now = Date.now();
