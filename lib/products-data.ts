@@ -80,6 +80,13 @@ export function clearAllCaches(): void {
   console.log('✅ ALL caches cleared successfully');
 }
 
+// Function to clear cache for a specific product
+export function clearProductCacheById(productId: number): void {
+  console.log(`🧹 Clearing cache for product ID: ${productId}`);
+  productCache.delete(productId);
+  console.log(`✅ Cache cleared for product ${productId}`);
+}
+
 // Clean up expired cache entries periodically
 setInterval(() => {
   const now = Date.now();
@@ -304,9 +311,10 @@ export async function getProductById(id: number): Promise<Product | null> {
 // Optimized function to fetch product with images in a single query
 export async function getProductByIdWithImagesOptimized(id: number): Promise<Product | null> {
   try {
-    // Check cache first
+    // Check cache first - but with shorter TTL for admin changes
     const cached = productCache.get(id);
-    if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
+    const CACHE_DURATION_SHORT = 30 * 1000; // 30 seconds for admin changes
+    if (cached && Date.now() - cached.timestamp < CACHE_DURATION_SHORT) {
       console.log('📦 Using cached product data for ID:', id);
       return cached.product;
     }
