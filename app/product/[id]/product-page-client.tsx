@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { useState, useEffect, useRef } from "react"
 import { useRouter } from "next/navigation"
 import { ArrowLeft, ArrowRight, Plus, Heart, Truck, Shield, RotateCcw, ShoppingBag, X, Minus, Edit, Check, Zap, Award, Clock, Star, Share2, Download } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -29,6 +29,7 @@ export default function ProductPageClient({ product, relatedProducts }: ProductP
   const [editingCartItem, setEditingCartItem] = useState<number | null>(null)
   const [imagesLoaded, setImagesLoaded] = useState(false)
   const [isLoading, setIsLoading] = useState(true)
+  const isDesktop = useRef(false)
 
   // Calculate price range for products with combinations
   const getPriceRange = () => {
@@ -82,6 +83,18 @@ export default function ProductPageClient({ product, relatedProducts }: ProductP
     }, 1000) // Show loading for 1 second
 
     return () => clearTimeout(timer)
+  }, [])
+
+  // Detect screen size to prevent conflicts between desktop and mobile versions
+  useEffect(() => {
+    const checkScreenSize = () => {
+      isDesktop.current = window.innerWidth >= 1024
+    }
+    
+    checkScreenSize()
+    window.addEventListener('resize', checkScreenSize)
+    
+    return () => window.removeEventListener('resize', checkScreenSize)
   }, [])
 
   // Debug logging for price changes (commented out for production)
@@ -262,6 +275,7 @@ export default function ProductPageClient({ product, relatedProducts }: ProductP
               <ProductOptionsSelector
                 product={product}
                 onOptionsChange={(color, features, price) => {
+                  console.log('🖥️ Desktop ProductOptionsSelector onOptionsChange:', { color, features, price })
                   setSelectedColor(color)
                   setSelectedFeatures(features)
                   setSelectedPrice(price)
@@ -431,12 +445,14 @@ export default function ProductPageClient({ product, relatedProducts }: ProductP
                       // Show selected combination price
                       <span className="text-3xl sm:text-4xl lg:text-5xl price-proxima-nova bg-gradient-to-r from-[#F7DD0F] to-yellow-400 bg-clip-text text-transparent font-bold">
                         Rs {selectedPrice.toLocaleString()}
+                        {console.log('💰 Displaying selectedPrice:', selectedPrice)}
                       </span>
                     ) : priceRange ? (
                       // Show price range for products with combinations
                       <div className="flex flex-col">
                         <span className="text-3xl sm:text-4xl lg:text-5xl price-proxima-nova bg-gradient-to-r from-[#F7DD0F] to-yellow-400 bg-clip-text text-transparent font-bold">
                           Rs {priceRange.minPrice.toLocaleString()} - Rs {priceRange.maxPrice.toLocaleString()}
+                          {console.log('💰 Displaying priceRange:', priceRange)}
                         </span>
                         <span className="text-sm text-gray-300 mt-1">Starting from</span>
                       </div>
@@ -478,9 +494,13 @@ export default function ProductPageClient({ product, relatedProducts }: ProductP
               <ProductOptionsSelector
                 product={product}
                 onOptionsChange={(color, features, price) => {
-                  setSelectedColor(color)
-                  setSelectedFeatures(features)
-                  setSelectedPrice(price)
+                  console.log('📱 Mobile ProductOptionsSelector onOptionsChange:', { color, features, price })
+                  // Only update state if we're actually on mobile (not desktop)
+                  if (!isDesktop.current) {
+                    setSelectedColor(color)
+                    setSelectedFeatures(features)
+                    setSelectedPrice(price)
+                  }
                 }}
                 initialColor={selectedColor}
                 initialFeatures={selectedFeatures}
